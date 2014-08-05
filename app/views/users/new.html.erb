@@ -1,0 +1,25 @@
+<%= flash[:alert] %>
+<h1>New User</h1>
+
+<form action="/create_user">
+  <div>
+    <label for="name">Username:</label><br />
+    <input id="name" name="name" type="text" />
+  </div>
+  <div>
+    <label for="email">Email:</label><br />
+    <input id="email" name="email" type="text" />
+  </div>
+  <div>
+    <label for="password">Password:</label><br />
+    <input id="password" name="password" type="password" />
+  </div>
+  <div>
+    <label for="password_conformation">Password Confirmation:</label><br />
+    <input id="password_conformation" name="password_conformation" type="password" />
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+

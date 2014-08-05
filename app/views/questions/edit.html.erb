@@ -1,0 +1,29 @@
+<h1>Editing Question #<%= @question.id %></h1>
+
+<form action="/questions/<%= @question.id %>/update">
+  <div>
+    <label for="title">Question</label><br />
+    <input id="title" name="title" value="<%= @question.title  %>" type="text" />
+  </div>
+  <div>
+    <label for="griffendor_answer">Griffendor answer</label><br />
+    <input id="griffendor_answer" name="griffendor_answer" value="<%= @question.griffendor_answer  %>" type="text" />
+  </div>
+  <div>
+    <label for="huffelpuff_answer">Hufflepuff answer</label><br />
+    <input id="huffelpuff_answer" name="huffelpuff_answer" value="<%= @question.huffelpuff_answer  %>" type="text" />
+  </div>
+  <div>
+    <label for="ravenclaw_answer">Ravenclaw answer</label><br />
+    <input id="ravenclaw_answer" name="ravenclaw_answer" value="<%= @question.ravenclaw_answer  %>" type="text" />
+  </div>
+  <div>
+    <label for="slytheryn_answer">Slytheryn answer</label><br />
+    <input id="slytheryn_answer" name="slytheryn_answer" value="<%= @question.slytheryn_answer  %>" type="text" />
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+
+

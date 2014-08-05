@@ -1,0 +1,29 @@
+<h1>Question #<%= @question.id %></h1>
+
+<div>
+  <strong>Title</strong>:<br />
+  <p><%= @question.title %></p>
+</div>
+<div>
+  <strong>Griffendor answer</strong>:<br />
+  <p><%= @question.griffendor_answer %></p>
+</div>
+<div>
+  <strong>Huffelpuff answer</strong>:<br />
+  <p><%= @question.huffelpuff_answer %></p>
+</div>
+<div>
+  <strong>Ravenclaw answer</strong>:<br />
+  <p><%= @question.ravenclaw_answer %></p>
+</div>
+<div>
+  <strong>Slytheryn answer</strong>:<br />
+  <p><%= @question.slytheryn_answer %></p>
+</div>
+<div>
+  <strong>User</strong>:<br />
+  <p><%= @user.name %></p>
+</div>
+
+<a href="/questions/<%= @question.id %>/edit">Edit</a> |
+<a href="/questions/<%= @question.id %>/destroy">Destroy</a>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PotterQuiz</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <script src="http://code.jquery.com/jquery.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img src="http://cdn3.dualshockers.com/wp-content/uploads/2014/01/Harry-Potter-Logo.jpg?42e955" height=100>
+    <ul class="nav nav-tabs">
+      <% if session["user_id"] %>
+       <% u = User.find_by_id(session["user_id"]) %>
+      <p> You're signed in, <%= u.name %></p>
+       <li><a href="/session/destroy">Sign Out</a></li>
+       <% else %>
+      <li><a href="/session/new">Sign In </a></li>
+      <li><a href="/new_user">Sign Up</a></li>
+    <% end %>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/quiz">Quiz</a></li>
+      <li><a href="/griffendor">Griffendor House</a></li>
+      <li><a href="/hufflepuff">Hufflepuff House</a></li>
+      <li><a href="/ravenclaw">Ravenclaw House</a></li>
+      <li><a href="/slytheryn">Slytheryn House</a></li>
+      <li><a href="/users">Users</a></li>
+      <% if session["user_id"] %>
+        <li><a href=/questions>Your questions</a></li>
+      <% end %>
+    </ul>
+   <%= yield %>
+  </div>
+</body>
+</html>

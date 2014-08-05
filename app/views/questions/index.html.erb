@@ -1,0 +1,38 @@
+<h1>Questions</h1>
+
+<p><a href="/new_question">Add a New Question</a></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Griffendor answer</th>
+      <th>Huffelpuff answer</th>
+      <th>Ravenclaw answer</th>
+      <th>Slytheryn answer</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @questions.each do |question| %>
+  <% @user= User.find_by(id: question.user_id) %>
+    <tr>
+          <td><%= question.title %></td>
+          <td><%= question.griffendor_answer %></td>
+          <td><%= question.huffelpuff_answer %></td>
+          <td><%= question.ravenclaw_answer %></td>
+          <td><%= question.slytheryn_answer %></td>
+      <td><%= @user.name %></td>
+          <td><a href="/questions/<%= question.id %>">Show</a>
+        </td>
+      <td><a href="/questions/<%= question.id %>/edit">Edit</a></td>
+      <td><a href="/questions/<%= question.id %>/destroy">Destroy</a></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,13 @@
+<form action="/processing">
+  <% @currquiz.each do |question_num|%>
+    <% @question = Question.find_by(id: question_num) %>
+    <h3 class="question"> <%= @question.title %></h3>
+      <ul class="answers">
+        <input type="radio" name="<%= question_num %>" value="griffendor" id="qg"><label for="qg"><%= @question.griffendor_answer  %></label><br/>
+        <input type="radio" name="<%= question_num %>" value="ravenclaw" id="qr"><label for="qr"><%= @question.ravenclaw_answer %></label><br/>
+        <input type="radio" name="<%= question_num %>" value="hufflepuff" id="qh"><label for="qh"><%= @question.huffelpuff_answer  %></label><br/>
+        <input type="radio" name="<%= question_num %>" value="slytheryn" id="qs"><label for="qs"><%= @question.slytheryn_answer  %></label><br/>
+      </ul>
+  <% end %>
+  <input type="submit">
+</form>
