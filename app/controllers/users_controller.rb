@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         redirect_to "/users/#{ @user.id }"
         session["user_id"]=@user.id
       else
-        render 'new', :flash => { :success => "Something went wrong, please try again later." }
+        render 'new', alert: "Something went wrong, please try again later." 
       end
     end
   end
