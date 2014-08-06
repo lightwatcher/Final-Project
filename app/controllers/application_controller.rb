@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
+  def login_required
+    user = User.find_by(id: session['user_id'])
+    if user.blank?
+      redirect_to "/", info: "You need to log in"
+    end
+  end
+  
   def home
   end
   
@@ -13,41 +20,31 @@ class ApplicationController < ActionController::Base
   end
   
   def processing
-#     @answers = Array.new
-#     @no_of_questions = Question.all
-#     @no_of_questions.each do |question|
-#       @answers.push(params[question.id.to_s])
-#     end
-#     @g_points = @answers.count("griffendor")
-#     @r_points = @answers.count("ravenclaw")
-#     @h_points = @answers.count("hufflepuff")
-#     @s_points = @answers.count("slytheryn")
-
-  
-#     if @g_points > @r_points && @g_points > @h_points && @g_points > @s_points
-#       redirect_to "/youre_in_griffendor"
-#     elsif @r_points > @g_points && @r_points > @h_points && @r_points > @s_points
-#       redirect_to "/youre_in_ravenclaw"
-#     elsif @h_points > @r_points && @h_points > @g_points && @h_points > @s_points
-#       redirect_to "/youre_in_hufflepuff"
-#     elsif @s_points > @s_points && @s_points > @h_points && @s_points > @g_points
-#       redirect_to "/youre_in_slytheryn"
-#     end
-#   end
-#   def griffendor
-#     @user = User.find_by_id(session['user_id'])
-#     @user.house_id = 1
-#   end
-#   def hufflepuff
-#     @user = User.find_by_id(session['user_id'])
-#     @user.house_id = 2
-#   end
-#   def slytheryn
-#     @user = User.find_by_id(session['user_id'])
-#     @user.house_id = 3
-#   end
-#   def ravenclaw
-#     @user = User.find_by_id(session['user_id'])
-#     @user.house_id = 4
+    @points = Hash.new(0)
+    params.each do |score|
+      @points[score[1]] += 1 
+    end 
+    if @points["griffendor"] >= @points["ravenclaw"] && @points["griffendor"] >= @points["hufflepuff"] && @points["griffendor"] >= @points["slytheryn"]
+       user = User.find_by_id(session['user_id'])
+      user.house_id = 1
+      user.save
+      redirect_to "/griffendor"
+    elsif @points["ravenclaw"] >= @points["griffendor"] && @points["ravenclaw"] >= @points["hufflepuff"] && @points["ravenclaw"] >= @points["slytheryn"]
+      user = User.find_by_id(session['user_id'])
+      user.house_id = 2
+      user.save
+      redirect_to "/ravenclaw"
+    elsif @points["hufflepuff"] >= @points["ravenclaw"] && @points["hufflepuff"] >= @points['griffendor'] && @points["hufflepuff"] >= @points["slytheryn"]
+      user = User.find_by_id(session['user_id'])
+      user.house_id = 3
+      user.save
+      redirect_to "/hufflepuff"
+    elsif @points["slytheryn"] > @points["ravenclaw"] && @points["slytheryn"] >= @points["hufflepuff"] && @points["slytheryn"] >= @points["griffendor"]
+      user = User.find_by_id(session['user_id'])
+      user.house_id = 4
+      user.save
+      redirect_to "/slytheryn"
+    end
   end
+  
 end

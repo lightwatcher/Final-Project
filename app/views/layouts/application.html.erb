@@ -11,6 +11,21 @@
 </head>
 <body>
   <div class="container">
+    <% if flash[:alert] != nil %>
+      <div class="alert alert-warning" role="alert">
+        <strong><%= flash[:alert] %></strong>
+      </div>
+    <% end %>
+    <% if flash[:success] != nil %>
+      <div class="alert alert-success" role="alert">
+        <strong><%= flash[:success] %></strong>
+      </div>
+    <% end %>
+    <% if flash[:info] != nil %>
+      <div class="alert alert-info" role="alert">
+        <strong><%= flash[:info] %></strong>
+      </div>
+    <% end %>
     <img src="http://cdn3.dualshockers.com/wp-content/uploads/2014/01/Harry-Potter-Logo.jpg?42e955" height=100>
     <ul class="nav nav-tabs">
       <% if session["user_id"] %>
@@ -23,12 +38,12 @@
     <% end %>
       <li><a href="/home">Home</a></li>
       <li><a href="/quiz">Quiz</a></li>
-      <li><a href="/griffendor">Griffendor House</a></li>
+      <li><a href="/griffendor">Gryffendor House</a></li>
       <li><a href="/hufflepuff">Hufflepuff House</a></li>
       <li><a href="/ravenclaw">Ravenclaw House</a></li>
-      <li><a href="/slytheryn">Slytheryn House</a></li>
+      <li><a href="/slytheryn">Slytherin House</a></li>
       <li><a href="/users">Users</a></li>
-      <% if session["user_id"] %>
+      <% if session["user_id"]==11 %>
         <li><a href=/questions>Your questions</a></li>
       <% end %>
     </ul>

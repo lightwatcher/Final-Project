@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :login_required, :except => [:new, :create, :index]
 
   def index
     @users = User.all
@@ -6,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @house = House.find_by(id: @user.house_id)
   end
 
   def new
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
         redirect_to "/users/#{ @user.id }"
         session["user_id"]=@user.id
       else
-        render 'new', alert: "Something went wrong, please try again later." 
+        render 'new', info: "Something went wrong, please try again later." 
       end
     end
   end

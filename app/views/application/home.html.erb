@@ -1,11 +1,11 @@
 <% if session["user_id"] %>
 <% u = User.find_by_id(session["user_id"]) %>
 <div class=alert>
-<%= flash[:message]%>
+
 </div>
 <h1> Hello <%= u.name %></h1>
 <% end %>
 <p> This is my final project for ruby on rails. It is a Harry Potter sorting quiz</p>
-<% if session["user_id"]%>
+<% if session["user_id"] == 11 %>
 <a href="/new_question">Want to add a new question?</a>
 <% end %>

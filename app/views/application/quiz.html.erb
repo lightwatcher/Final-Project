@@ -1,25 +1,19 @@
 <form action="/processing">
-  <% @currquiz.each do |question_num|%>
-    <% @question = Question.find_by(id: question_num) %>
+<% 
+@currquiz.each do |question_num|
+  @question = Question.find_by(id: question_num)
+  @answer = [["griffendor", @question.griffendor_answer], ["ravenclaw", @question.ravenclaw_answer], ["hufflepuff", @question.huffelpuff_answer], ["slytheryn", @question.slytheryn_answer]]
+  @answer = @answer.shuffle
+%>
     <h3 class="question" id="q<%= question_num %>"> <%= @question.title %></h3>
       <ul class="answers">
+        <% @answer.each_with_index do |a, i| %>
         <label>
-          <input type="radio" name="<%= question_num %>" value="griffendor" id="q<%= question_num %>g">
-          <%= @question.griffendor_answer  %>
+          <input type="radio" name="<%= question_num %>" value="<%= @answer[i][0] %>" id="q<%= question_num.to_s + 'a' + i.to_s %>">
+          <%= @answer[i][1]  %>
         </label><br/>
-        <label>
-          <input type="radio" name="<%= question_num %>" value="ravenclaw" id="q<%= question_num %>r">
-          <%= @question.ravenclaw_answer %>
-        </label><br/>
-        <label>
-          <input type="radio" name="<%= question_num %>" value="hufflepuff" id="q<%= question_num %>h">
-          <%= @question.huffelpuff_answer  %>
-        </label><br/>
-        <label>
-          <input type="radio" name="<%= question_num %>" value="slytheryn" id="q<%= question_num %>s">
-          <%= @question.slytheryn_answer  %>
-        </label><br/>
+        <% end %>
       </ul>
-  <% end %>
+<% end %>
   <input type="submit">
 </form>

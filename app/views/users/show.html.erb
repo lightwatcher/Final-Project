@@ -8,7 +8,11 @@
   <strong>Email</strong>:<br />
   <p><%= @user.email %></p>
 </div>
-
-
+<% if @user.house_id != nil %>
+  <div>
+    <strong>House</strong>:<br>
+    <%= @house.name.capitalize %>
+  </div>
+<% end %>
 <a href="/users/<%= @user.id %>/edit">Edit</a> |
 <a href="/users/<%= @user.id %>/destroy">Destroy</a>
