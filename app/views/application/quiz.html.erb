@@ -9,8 +9,16 @@
       <ul class="answers">
         <% @answer.each_with_index do |a, i| %>
         <label>
-          <input type="radio" name="<%= question_num %>" value="<%= @answer[i][0] %>" id="q<%= question_num.to_s + 'a' + i.to_s %>">
-          <%= @answer[i][1]  %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="radio" name="<%= question_num %>" value="<%= @answer[i][0] %>" id="q<%= question_num.to_s + 'a' + i.to_s %>">
+            <%= @answer[i][1]  %>
+                </span>
+              </div>
+            </div>
+          </div>
         </label><br/>
         <% end %>
       </ul>

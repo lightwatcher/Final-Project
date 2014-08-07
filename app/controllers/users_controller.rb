@@ -28,7 +28,7 @@ class UsersController < ApplicationController
         redirect_to "/users/#{ @user.id }"
         session["user_id"]=@user.id
       else
-        render 'new', info: "Something went wrong, please try again later." 
+        render 'new', alert: "Something went wrong, please try again later." 
       end
     end
   end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id])
     if session['user_id']!=@user.id ||session['user_id'] != 1
-      redirect_to "/users"
+      redirect_to "/users", alert: "You can't edit other users"
     end
   end
 

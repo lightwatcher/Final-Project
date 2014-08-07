@@ -2,7 +2,10 @@
 <% u = User.find_by_id(session["user_id"]) %>
 <h1> Hello <%= u.name %></h1>
 <% end %>
-<p> This is my final project for ruby on rails. It is a Harry Potter sorting quiz</p>
+<div class="page-header">
+<h1> This is my final project for ruby on rails. It is a Harry Potter sorting quiz</h1>
+</div>
+<p> This test is designed to be funny. It also tries to avoid stupid questions like "What's your favorite color," because that has no effect on your personality, which is what should really determine your house. Another question we strive to aviod is a question like "How would you accomplish this task," because, for example, Crabe and Goyle are bad at potions, Nevil was far better at Herbology than Defense Against the Dark Arts, and Ravenclaws are good at almost everything
 <% if session["user_id"] == 1 %>
 <a href="/new_question">Want to add a new question?</a>
 <% end %>

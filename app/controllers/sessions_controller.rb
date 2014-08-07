@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       session["user_id"]=u.id
       redirect_to "/home"
     else
-      redirect_to "/session/new"
+      redirect_to "/session/new", alert: "Incorrect username or password"
     end
   end
     def destroy

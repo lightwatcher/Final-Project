@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     if session["user_id"] == 1
       render "new"
     else
-      redirect_to "/questions"
+      redirect_to "/questions", alert: "You can't create new questions."
     end
   end
 
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
     if @question.user_id == session["user_id"]
       render "edit"
     else
-      redirect_to "/questions"
+      redirect_to "/questions", alert: "You can't edit questions."
     end
   end
 
