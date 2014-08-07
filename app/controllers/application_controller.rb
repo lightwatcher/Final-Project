@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   
   def quiz
     if !session['user_id']
-      redirect_to "/home",
-      error: "Please sign in"
+      redirect_to "/home", alert: "You need to log in"
     end
     @currquiz = (1..Question.all.length).to_a.sample(10)
   end
