@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    if session['user_id']!=@user.id
+    if session['user_id']!=@user.id ||session['user_id'] != 1
       redirect_to "/users"
     end
   end
@@ -56,10 +56,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
-    if session['user_id']!=@user.id
+    if session['user_id']!=@user.id || session['user_id'] != 1
       redirect_to "/users"
     end
     @user.destroy
+    session.destroy
 
 
     redirect_to "/users"

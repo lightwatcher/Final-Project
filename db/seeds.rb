@@ -1,7 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+House.create!([
+  {name: "gryffindor"},
+  {name: "ravenclaw"},
+  {name: "hufflepuff"},
+  {name: "slytherin"}
+])
+Question.create!([
+  {title: "A thief tries to steal something from a vacant shop, and alarms go off. You:", griffendor_answer: "Stop him yourself", huffelpuff_answer: "Call the police", ravenclaw_answer: "Trip him with a book", slytheryn_answer: "Call the police, then sneek into the shop and enter through the door", user_id: 2},
+  {title: "What is your favorite spell?", griffendor_answer: "A defensive spell, like stupify", huffelpuff_answer: "You try not to judge and think all spells are equally.", ravenclaw_answer: "A usefull spell, like mobilicorpus.", slytheryn_answer: "A funny spell, like levicorpus.", user_id: 2},
+  {title: "You are taking your T.O.A.D (Totally Overwhelming Assesment for Drifting in air) when you relize you don't actually  know any of the answers. You:", griffendor_answer: "Try your best.", huffelpuff_answer: "You turn it in early.", ravenclaw_answer: "A very funny joke, of course you know all the anwers.", slytheryn_answer: "You threaten your neighbor untill  he gives you their test and starts crying", user_id: 2},
+  {title: "You get threatened by your boss that if you are late one more time he will fire you. You:", griffendor_answer: "Ignore him.", huffelpuff_answer: "Ask for a friend to cover for you.", ravenclaw_answer: "Hack into the stoplight system to encourage gridlock in his part of the city.", slytheryn_answer: "Wait him out and then show how your least favorite co-worker let out the air in both your tires with plenty of \"evidence.\"", user_id: 2},
+  {title: "You decide to play a prank on your neighbor. You:", griffendor_answer: "Sneak into his house and have water spray in his face whenever he turns on the water tap.", huffelpuff_answer: "Have a whoopie cushon sound go off whenever he sits down by following him around.", ravenclaw_answer: "Make it so that an annoying sound comming from within his walls wakes him at 3 in the morning.", slytheryn_answer: "Make him suspect that his wife is cheating on him.", user_id: 2},
+  {title: "Your worst fear is:", griffendor_answer: "Fear itself.", huffelpuff_answer: "Not having any frends.", ravenclaw_answer: "Getting a O-.", slytheryn_answer: "Not having a backup plan.", user_id: 2},
+  {title: "Your favorite video game is:", griffendor_answer: "An action video game, like God of War.", huffelpuff_answer: "An MMO like WOW.", ravenclaw_answer: "A tactical video game, like Civilization.", slytheryn_answer: "A stealth videogame, like Metal Gear.", user_id: 2},
+  {title: "Your favorite videos on YouTube are:", griffendor_answer: "Videos that have people confronting their fears.", huffelpuff_answer: "Collaborative videos.", ravenclaw_answer: "How to build things.", slytheryn_answer: "Prank videos.", user_id: 2},
+  {title: "A little kid that thinks he's tough starts picking on you. You:", griffendor_answer: "Tell him that he isn't big enough to be worth fighting.", huffelpuff_answer: "You take it, planning to tell his mother.", ravenclaw_answer: "Come up with clever comebacks that will shrink his ego.", slytheryn_answer: "You shove him and walk off.", user_id: 2},
+  {title: "An old enemy walks up to you, and apologizes. He says he wants to do something for you to make up. You:", griffendor_answer: "Ask him to be your sparring partner. He was the only one who could stand up to you in the boxing ring after all.", huffelpuff_answer: "Say there is no need.", ravenclaw_answer: "Ask him to buy you a new computer, after all his pattents probably got him a lot of money.", slytheryn_answer: "Ask him to do some thing humiliating, you never forgive.", user_id: 2},
+  {title: "You get a rubicks cube that, according to the frend who gave it, has something nice inside. You have never solved one before.", griffendor_answer: "Smash it open when your in private.", huffelpuff_answer: "Ask him for help.", ravenclaw_answer: "Solve it on your own and try to.", slytheryn_answer: "Pull a prank on him, he knows that you've never solved one before.", user_id: 2},
+  {title: "Your best subject at school is:", griffendor_answer: "P.E", huffelpuff_answer: "Biology", ravenclaw_answer: "Math", slytheryn_answer: "Chemestry", user_id: 2},
+  {title: "Your favorate childhood activity was/is:", griffendor_answer: "Playfights.", huffelpuff_answer: "Reading.", ravenclaw_answer: "Daydreaming.", slytheryn_answer: "Pranks", user_id: 2},
+  {title: "During family gatherings you:", griffendor_answer: "Are the first in the pool.", huffelpuff_answer: "Are practically invisible for mingling.", ravenclaw_answer: "Hang back and read your book.", slytheryn_answer: "Tend to try to stay in the shadows. There all so petty, most of them haven't forgiven you for the surprize in the cake last year.", user_id: 2},
+  {title: "The way you got back at your siblings when you were a child was:", griffendor_answer: "Not getting scared at their intimidation tactics.", huffelpuff_answer: "Arraging a similar prank to one they did.", ravenclaw_answer: "Inventing a bunch of nonsense terms that made them feel stupid.", slytheryn_answer: "Having your mother discover them doing something they shouldn't be", user_id: 2},
+  {title: "Friendship is:", griffendor_answer: " Something that helps me face fears.", huffelpuff_answer: "What I like having.", ravenclaw_answer: "The state of being friends, the relationship between friends; a friendly feeling or attitude , kindness or help given to someone.", slytheryn_answer: "An advantageous relationship for me, in which I get what I want from somebody, and they don't complain.", user_id: 2}
+])
+User.create!([
+  {name: "Matthew", email: "", password_digest: "$2a$10$w1fQwZzmQUj28SYMdQMp8ePLXn9SCgaX0Ya5zYI4oNqdzJtgWwQ/2", house_id: 3}
+])

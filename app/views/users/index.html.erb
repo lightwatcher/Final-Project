@@ -21,7 +21,7 @@
           
           <td><a href="/users/<%= user.id %>">Show</a>
         </td>
-      <% if session["user_id"] == 11 || session["user_id"]==user.id  %>
+      <% if session["user_id"] == 1 || session["user_id"]==user.id  %>
       <td><a href="/users/<%= user.id %>/edit">Edit</a></td>
       <td><a href="/users/<%= user.id %>/destroy">Destroy</a></td>
       <% end %>

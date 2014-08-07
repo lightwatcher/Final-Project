@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def quiz
     if !session['user_id']
       redirect_to "/home",
-      alert: "please sign in"
+      alert: "Please sign in"
     end
     @currquiz = (1..Question.all.length).to_a.sample(10)
   end
@@ -28,22 +28,22 @@ class ApplicationController < ActionController::Base
        user = User.find_by_id(session['user_id'])
       user.house_id = 1
       user.save
-      redirect_to "/griffendor"
+      redirect_to "/griffendor", success: 'You are in Gryffendor'
     elsif @points["ravenclaw"] >= @points["griffendor"] && @points["ravenclaw"] >= @points["hufflepuff"] && @points["ravenclaw"] >= @points["slytheryn"]
       user = User.find_by_id(session['user_id'])
       user.house_id = 2
       user.save
-      redirect_to "/ravenclaw"
+      redirect_to "/ravenclaw", success: 'You are in Ravenclaw'      
     elsif @points["hufflepuff"] >= @points["ravenclaw"] && @points["hufflepuff"] >= @points['griffendor'] && @points["hufflepuff"] >= @points["slytheryn"]
       user = User.find_by_id(session['user_id'])
       user.house_id = 3
       user.save
-      redirect_to "/hufflepuff"
+      redirect_to "/hufflepuff", success: 'You are in Hufflepuff'
     elsif @points["slytheryn"] > @points["ravenclaw"] && @points["slytheryn"] >= @points["hufflepuff"] && @points["slytheryn"] >= @points["griffendor"]
       user = User.find_by_id(session['user_id'])
       user.house_id = 4
       user.save
-      redirect_to "/slytheryn"
+      redirect_to "/slytheryn", success: 'You are in Slytherin' 
     end
   end
   

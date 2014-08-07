@@ -8,6 +8,7 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+gem 'seed_dump'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'

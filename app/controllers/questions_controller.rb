@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :login_requiered
+  before_filter :login_required
 
   def index
     @questions = Question.where(user_id: session["user_id"])
@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    if session["user_id"] == 11
+    if session["user_id"] == 1
       render "new"
     else
       redirect_to "/questions"
