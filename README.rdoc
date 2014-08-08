@@ -1,28 +1,8 @@
 == README
+This is a harry potter sorting hat quiz
+My 3 user stories are:
+1. You can go to the site and sign in and take the quiz and have the result be permanently saved
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2. You can go to any of the house pages and find the names of the people who got a result on the quiz
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+3. You can edit your own profile, but you can't edit anyone elses.
